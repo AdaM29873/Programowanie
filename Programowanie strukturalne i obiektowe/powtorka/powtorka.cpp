@@ -17,32 +17,22 @@ int  chooseOption()
     cout << " Wybierz opcje " << endl;
     cin >> selectedOption;
 
+    return selectedOption;
+
     
 
 }
  
-void doSelectedTask()
-{
-    if (selectedOption == 1)
-    {
-        poleKwadratu();
-    }
-    if (slectedOption == 2)
-    {
-        pole3kata();
-    }
-}
-
-
 void pole3kata()
 {
-    int a, b;
+    int a, h;
     cout << "podaj podstawe" << endl;
     cin >> a;
     cout << "podaj wysokosc" << endl;
-    cin >> b;
+    cin >> h;
 
-    cout << "wynik" << a * b / 2;
+    int wynik = a * h / 2;
+    cout << "wynik: " << wynik;
 
 
 }
@@ -50,15 +40,29 @@ void pole3kata()
 void poleKwadratu()
 {
     int a, b;
-    cout << "podaj pierwszy bok" << endl;
+    cout << "podaj bok" << endl;
     cin >> a;
-    cout << "podaj drugi bok" << endl;
-    cin >> b;
-
-    cout << "wynik" << a * b;
+    
+    int area = a * a;
+    cout << "wynik: " << area;
 
 
 }
+
+void doSelectedTask(int selectedOption)
+{
+    if (selectedOption == 1)
+    {
+        poleKwadratu();
+    }
+    if (selectedOption == 2)
+    {
+        pole3kata();
+    }
+}
+
+
+
 
 
 
@@ -67,9 +71,9 @@ void mainProgram()
     //1. wyswietlenie menu
     showMenu();
     //2. wybranie opcji przez uzytkownika
-    chooseOption();
+    int selected = chooseOption();
     //3. wykonanie wybranego zadania
-    doSelectedTask();
+    doSelectedTask(selected);
 }
 
 void main()
