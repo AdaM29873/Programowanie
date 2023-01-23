@@ -70,5 +70,25 @@ namespace LotOfTasks
             else
                 Console.WriteLine("To nie jest palindrom\n");
         }
+        public void Petle4()
+        {
+            Console.WriteLine("Podaj liczbe: ");
+            string num1 = Console.ReadLine();
+            int number = int.Parse(num1);
+            int dziel = number -1;
+            int suma = 0;
+            do
+            {
+                if(number % dziel == 0)
+                {
+                    suma += dziel;
+                }
+            } while (dziel > 0);
+
+            if (suma == number)
+                Console.WriteLine("liczba jest doskonała");
+            else
+                Console.WriteLine("liczba nie jest doskonała");
+        }
     }
 }
