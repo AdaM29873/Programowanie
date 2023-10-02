@@ -1,3 +1,0 @@
-﻿  Zad_Tab.cpp
-C:\Users\Uczeń\Desktop\Zadania Tablica\Zadania Tablica\Zad_Tab\Zad_Tab.cpp(50,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Zad_Tab.vcxproj -> C:\Users\Uczeń\Desktop\Zadania Tablica\x64\Debug\Zad_Tab.exe

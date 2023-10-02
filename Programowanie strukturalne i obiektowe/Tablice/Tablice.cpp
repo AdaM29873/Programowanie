@@ -1,8 +1,64 @@
 ﻿#include <iostream>
 #include <math.h>
+using namespace std;
 /*
 Napisz funkcję w której wczytamy 5 liczb i wyświetlimy je w odwrotnej kolejności.
  */
+
+ /*
+ Zadania:
+ * Napisz funkcję, która dla kolekcji danych liczbowych obliczy średnią arytmetyczną.
+ * Napisz funkcję, która dla kolekcji danych liczbowych policzy ile jest liczb większych od średniej arytmetycznej.
+ * Napisz funkcje, która dla kolekcji danych liczbowych przeniesie te liczby do innej kolekcji w odwrotnej kolejności.
+ * Napisz funkcje, która dla kolekcji danych liczbowych obliczy częstotliwość występowania danej liczby.
+ * Napisz funkcję, która dla kolekcji danych liczbowych znajdzie najdłuższy rosnący podciąg.
+ * Napisz funkcję, która dla kolekcji danych liczbowych przeniesie te liczby do osobnych kolekcji liczb parzystych i nieparzystych.
+ *
+ */
+
+
+int zad_01(int size, int tab[])
+{
+
+
+	int sum = 0;
+
+	//średnia
+
+	for (int i = 0; i < size; i++)
+	{
+		sum = sum + tab[i];
+	}
+	std::cout << "suma: " << sum << endl;
+	int average = sum / size;
+	cout << "srednia: " << average;
+	std::cout << "\n";
+	return average;
+}
+
+//Napisz funkcję, która dla kolekcji danych liczbowych policzy ile jest liczb większych od średniej arytmetycznej.
+void zad_02(int size, int tab[], int average)
+{
+	int how_many = 0;
+	for (int i = 0; i < size; i++)
+	{
+		if (tab[i] > average)
+		{
+			how_many++;
+		}
+	}
+	cout << "liczb wiekszych od srednuiej jest: " << how_many << endl;
+}
+
+void zad_03(const int size, int tab[], int tab_vice_versa[])
+{
+	for (int i = 0; i < size; i++)
+	{
+		tab_vice_versa[i] = tab[size - i - 1];
+		cout << tab_vice_versa[i] << ",";
+	}
+
+}
 
 void Zadanie1()
 {
@@ -175,9 +231,9 @@ void Zadanie7()
 
 	for (int i = 0; i < ROZMIAR_TABLICY; i++)
 	{
-		std::cout << tablicaLiczb[i] << ", ";
+		cout << tablicaLiczb[i] << ", ";
 	}
-	std::cout << "\n";
+	cout << "\n";
 
 	//Tutaj umieszczamy algorytm dla zadania
 	int suma = 0;
@@ -186,7 +242,7 @@ void Zadanie7()
 		suma = suma + tablicaLiczb[i];
 	}
 	float srednia = (suma * 1.0) / ROZMIAR_TABLICY;
-	std::cout << "Srednia arytmetyczna to: " << srednia << "\n";
+	cout << "Srednia arytmetyczna to: " << srednia << "\n";
 }
 
 /*
@@ -278,7 +334,7 @@ void Zadanie25()
 		}
 
 	} while (liczbaUzytkownika != 0);
-	std::cout << "Statystyka:\n";
+	cout << "Statystyka:\n";
 	for (int i = 0; i < 10; i++)
 		std::cout << "Liczb " << i << " podano " << statystykaTablica[i] << "\n";
 }
@@ -375,9 +431,33 @@ void Zadanie28()
 
 }
 
+
 int main()
 {
-	Zadanie28();
+	const int  lengh_of_table = 10;
+	int numbers[lengh_of_table];
+	int min = 4;
+	int max = 30;
+
+	srand(time(NULL));
+
+	for (int i = 0; i < lengh_of_table; i++)
+	{
+		//zakres <zakresDolny; zakresGorny>
+		numbers[i] = rand() % (max - min + 1) + min;
+	}
+
+	for (int i = 0; i < lengh_of_table; i++)
+	{
+		std::cout << numbers[i] << ", ";
+	}
+	int tab_vice_versa[lengh_of_table];
+	std::cout << "\n";
+	//int average = zad_01(lengh_of_table,numbers);
+	//zad_02(lengh_of_table,numbers,average);
+	zad_03(lengh_of_table, numbers, tab_vice_versa);
+
+	//Zadanie28();
 }
 
 void Szablon()
@@ -398,7 +478,7 @@ void Szablon()
 
 	for (int i = 0; i < ROZMIAR_TABLICY; i++)
 	{
-		std::cout << tablicaLiczb[i] << ", ";
+		cout << tablicaLiczb[i] << ", ";
 	}
 	std::cout << "\n";
 
